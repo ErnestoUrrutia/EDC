@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;1,100;1,200&family=Titillium+Web:ital,wght@0,200;0,300;0,400;1,200&display=swap');
+
+        body {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            font-family: 'Titillium Web', sans-serif;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        header {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            background-color: #242424;
+        }
+
+        header span {
+            margin: 0;
+            margin-left: 20px;
+            font-size: 30px;
+            color: rgb(255, 255, 255);
+
+            text-shadow: 0px 0px 10px rgb(0, 0, 0);
+        }
+
+        main {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: calc(100vh - 50px);
+
+            overflow: hidden;
+        }
+
+        main img {
+
+
+            width: 100%;
+            height: 100%;
+        }
+
+        .flecha {
+            cursor: pointer;
+            width: 40px;
+            height: 100px;
+            background-color: #181818;
+            opacity: 0.2;
+            position: absolute;
+            user-select: none;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .flecha:hover {
+            opacity: 1;
+            width: 80px;
+        }
+
+        #flecha_izq {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            border-bottom-right-radius: 20px;
+            border-top-right-radius: 20px;
+
+        }
+
+        #flecha_der {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            border-bottom-left-radius: 20px;
+            border-top-left-radius: 20px;
+        }
+
+        footer {
+
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background-color: transparent;
+            transition: all 0.3s ease-in-out;
+        }
+
+        footer section {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            overflow-x: auto;
+            bottom: -100px;
+            transition: all 0.3s ease-in-out;
+            max-width: 100%;
+        }
+
+        footer section::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        footer section::-webkit-scrollbar-thumb {
+            background-color: #494949;
+            border-radius: 50px;
+        }
+
+        footer section::-webkit-scrollbar-track {
+            background-color: #ffffff;
+        }
+
+        footer section::-webkit-scrollbar-thumb:hover {
+            background-color: #000000;
+        }
+
+        footer:hover section {
+            bottom: 0;
+        }
+
+        footer:hover {
+            background-color: #0000007c;
+        }
+
+
+
+        footer section span {
+            flex-shrink: 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: #181818;
+            transition: all 0.3s ease-in-out;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        footer section span:hover {
+            background-color: aliceblue;
+            color: black;
+        }
+
+        header nav {
+            position: absolute;
+            right: 100px;
+        }
+
+        header nav a {
+            font-size: 18px;
+            text-decoration: none;
+            color: white;
+            border-bottom: 1px solid transparent;
+            
+            margin-right: 25px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        header nav a:hover {
+            border-bottom: 1px solid white;
+            
+        }
+
+        header i {
+            position: absolute;
+            right: 25px;
+            font-size: 25px;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+
+        }
+        #icono_recursos.mostrar{
+            background-color: #23b830;
+        }
+        header i:hover {
+            background-color: #ffffff;
+            color: black;
+        }
+
+
+
+        aside {
+            width: 500px;
+            height: calc(100vh - 50px);
+            background-color: #24242475;
+            position: absolute;
+            right: -100%;
+            top: 50px;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: scroll;
+        }
+
+        aside.mostrar {
+            right: 0;
+        }
+        .codigos{
+            width: 90%;
+            height: 200px;
+            background-color: #202020;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 1px black;
+            flex-shrink: 0;
+
+        }
+        @media only screen and (max-width: 600px) {
+            main {
+                width: 100vh;
+                height: 100vw;
+                overflow: hidden;
+                transform-origin: bottom left;
+                transform: rotate(90deg) translateX(-50%);
+
+            }
+
+            footer {
+                display: none;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <span>
+            Escuela del Código
+        </span>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="http://187.217.4.141/~edc/moodle/" target="_blank">Moodle</a>
+            <a href="cod_r.html" target="_blank">Código</a>
+        </nav>
+        <i id="icono_recursos" class="fa-solid fa-code"></i>
+
+    </header>
+    <main>
+        <div class="flecha" id="flecha_izq" onclick="cambiarDiapositiva(-1)">&lt;</div>
+        <img id="img_diapositiva" src="Diapositiva1.JPG" alt="">
+        <div class="flecha" id="flecha_der" onclick="cambiarDiapositiva(1)">&gt;</div>
+    </main>
+    <aside id="lateral_recursos">
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+        <div class="codigos"></div>
+    </aside>
+    <footer>
+        <section id="indice_diapositivas">
+        </section>
+    </footer>
+</body>
+<script>
+    var TotalDiapositivas = 81, posicionDiapositiva = 1;
+    var imagen = document.getElementById("img_diapositiva");
+    function cambiarDiapositiva(direccion) {
+
+        posicionDiapositiva = posicionDiapositiva + direccion;
+        if (posicionDiapositiva > TotalDiapositivas) {
+            posicionDiapositiva = 1;
+        }
+        if (posicionDiapositiva < 1) {
+            posicionDiapositiva = TotalDiapositivas;
+        }
+        imagen.src = "Diapositiva" + (posicionDiapositiva) + ".JPG";
+
+
+    }
+    document.addEventListener("keydown", function (event) {
+        if (event.key == "ArrowLeft") {
+            cambiarDiapositiva(-1);
+        }
+        if (event.key == "ArrowRight") {
+            cambiarDiapositiva(1);
+        }
+    });
+
+    var contenedor = document.getElementById("indice_diapositivas");
+
+    for (var i = 1; i <= TotalDiapositivas; i++) {
+        var nuevoSpan = document.createElement("span");
+        nuevoSpan.textContent = i;
+        nuevoSpan.id = "span" + i;
+        nuevoSpan.setAttribute("onClick", "seleccionarDiapositiva(" + i + ")")
+        contenedor.appendChild(nuevoSpan);
+    }
+    function seleccionarDiapositiva(numDiapositiva) {
+        imagen.src = "Diapositiva" + (numDiapositiva) + ".JPG";
+        posicionDiapositiva = numDiapositiva;
+    }
+    $('#icono_recursos').on("click", function () {
+
+        $('#lateral_recursos').toggleClass("mostrar");
+        $('#icono_recursos').toggleClass("mostrar");
+    });
+</script>
+<script src="https://kit.fontawesome.com/c982b33cb5.js" crossorigin="anonymous"></script>
+
+</html>
