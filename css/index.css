@@ -155,6 +155,7 @@ footer section span {
     transition: all 0.3s ease-in-out;
     font-size: 14px;
     margin-left: 5px;
+    margin-bottom: 5px;
 }
 
 footer section span:hover {
