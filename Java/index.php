@@ -4,22 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EDC (Java)</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;1,100;1,200&family=Titillium+Web:ital,wght@0,200;0,300;0,400;1,200&display=swap');
 
         body {
-            position: relative;
+
             margin: 0;
             padding: 0;
             font-family: 'Titillium Web', sans-serif;
-            width: 100%;
+            width: 100vw;
+
             height: 100vh;
-            overflow: hidden;
+            background-color: #000000;
         }
 
         header {
+
             width: 100%;
             height: 50px;
             display: flex;
@@ -40,6 +42,8 @@
             position: relative;
             margin: 0;
             padding: 0;
+            border: none;
+            margin: 0;
             width: 100%;
             height: calc(100vh - 50px);
 
@@ -49,6 +53,7 @@
         main img {
 
 
+            overflow: auto;
             width: 100%;
             height: 100%;
         }
@@ -168,39 +173,36 @@
 
         header nav {
             position: absolute;
-            right: 100px;
+            right: 10px;
         }
 
         header nav a {
             font-size: 18px;
             text-decoration: none;
             color: white;
-            border-bottom: 1px solid transparent;
-            
-            margin-right: 25px;
+            margin-right: 5px;
+
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
             transition: all 0.3s ease-in-out;
+        }
+
+        header nav a i {
+            margin-right: 5px;
+        }
+
+
+
+        #icono_recursos.mostrar {
+            background-color: #23b830;
+        }
+
+        #icono_recursos.mostrar:hover {
+            color: white;
         }
 
         header nav a:hover {
-            border-bottom: 1px solid white;
-            
-        }
-
-        header i {
-            position: absolute;
-            right: 25px;
-            font-size: 25px;
-            color: white;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 5px;
-            transition: all 0.3s ease-in-out;
-
-        }
-        #icono_recursos.mostrar{
-            background-color: #23b830;
-        }
-        header i:hover {
             background-color: #ffffff;
             color: black;
         }
@@ -210,45 +212,121 @@
         aside {
             width: 500px;
             height: calc(100vh - 50px);
-            background-color: #24242475;
+            /* background-color: #24242475; */
             position: absolute;
-            right: -100%;
-            top: 50px;
+            right: -200%;
+            top: 0px;
             transition: all 0.3s ease-in-out;
             display: flex;
             flex-direction: column;
             align-items: center;
             overflow-y: scroll;
+            
         }
 
         aside.mostrar {
             right: 0;
         }
-        .codigos{
+
+        .codigos {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             width: 90%;
             height: 200px;
             background-color: #202020;
             margin-top: 20px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px 1px black;
+            border-radius: 4px;
+            box-shadow: 0px 0px 5px 1px black;
             flex-shrink: 0;
 
         }
-        @media only screen and (max-width: 600px) {
-            main {
-                width: 100vh;
-                height: 100vw;
+        .codigos:last-child {
+            margin-bottom: 80px;
+        }
+        .codigos span {
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .codigos textarea {
+            resize: none;
+            width: 95%;
+            height: 80%;
+            border: none;
+            letter-spacing: 2px;
+            border-radius: 5px;
+            background-color: #494949;
+            color: #ffffff;
+            overflow-x: auto; 
+          
+        }
+
+        #icono_barras {
+            display: none;
+            position: absolute;
+            right: 10px;
+            font-size: 25px;
+            text-decoration: none;
+            color: white;
+            margin-right: 5px;
+
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+
+        @media (max-width:700px) {
+
+            #icono_barras {
+                display: block;
+
+            }
+
+            body {
+                overflow: auto;
+                width: 100vw;
+                height: 100vh;
+
+
+            }
+
+            nav i {
+                padding: 5px 10px;
+                margin: 0;
+            }
+
+            nav {
+                display: flex;
+                flex-direction: column;
+
+                position: fixed;
+                right: -50px;
+                backdrop-filter: blur(10px);
+                top: 55px;
+                z-index: 1;
+                width: 150px;
+                box-shadow: 0px 0px 10px 1px black;
+                border-radius: 5px;
+                height: 0;
                 overflow: hidden;
-                transform-origin: bottom left;
-                transform: rotate(90deg) translateX(-50%);
-
             }
 
-            footer {
-                display: none;
+            #icono_barras:hover+nav {
+                height: auto;
             }
 
+            nav:hover {
+                height: auto;
+            }
 
+            aside {
+                width: 100%;
+
+            }
         }
     </style>
 </head>
@@ -258,39 +336,44 @@
         <span>
             Escuela del Código
         </span>
+        <i id="icono_barras" class="fa-solid fa-bars"></i>
         <nav>
-            <a href="index.html">Inicio</a>
-            <a href="http://187.217.4.141/~edc/moodle/" target="_blank">Moodle</a>
-            <a href="cod_r.html" target="_blank">Código</a>
+            <a href="index.html"><i class="fa-solid fa-house"></i>Inicio</a>
+            <a href="http://187.217.4.141/~edc/moodle/" target="_blank"><i class="fa-solid fa-pencil"></i>Moodle</a>
+            <a href="cod_r.html" target="_blank"><i class="fa-solid fa-keyboard"></i>Código</a>
+            <a href="#" id="icono_recursos"><i class="fa-solid fa-code"></i>Recursos</a>
         </nav>
-        <i id="icono_recursos" class="fa-solid fa-code"></i>
+
 
     </header>
+
     <main>
         <div class="flecha" id="flecha_izq" onclick="cambiarDiapositiva(-1)">&lt;</div>
         <img id="img_diapositiva" src="Diapositiva1.JPG" alt="">
         <div class="flecha" id="flecha_der" onclick="cambiarDiapositiva(1)">&gt;</div>
+        <aside id="lateral_recursos">
+            <?php
+            $rutaCarpeta = 'code';
+            $archivos = scandir($rutaCarpeta);
+            foreach ($archivos as $archivo) {
+                $rutaArchivo = $rutaCarpeta . '/' . $archivo;
+
+                // Verificar si es un archivo y si tiene la extensión .txt
+                if (is_file($rutaArchivo) && pathinfo($rutaArchivo, PATHINFO_EXTENSION) == 'txt') {
+                    $contenido = file_get_contents($rutaArchivo);
+                    echo '<div class="codigos">';
+                    echo '<span>' . $archivo . '</span>';
+                    echo '<textarea spellcheck="false" readonly>' . htmlspecialchars($contenido) . ' </textarea>';
+                    echo ' </div>';
+                }
+            }
+            ?>
+
+        </aside>
     </main>
-    <aside id="lateral_recursos">
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-        <div class="codigos"></div>
-    </aside>
+
+
+
     <footer>
         <section id="indice_diapositivas">
         </section>
@@ -339,6 +422,7 @@
         $('#lateral_recursos').toggleClass("mostrar");
         $('#icono_recursos').toggleClass("mostrar");
     });
+
 </script>
 <script src="https://kit.fontawesome.com/c982b33cb5.js" crossorigin="anonymous"></script>
 
