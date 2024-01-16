@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDC (Java)</title>
+    <title>EDC (Base De Datos)</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../css/index.css">
 
@@ -59,7 +59,7 @@
     </footer>
 </body>
 <script>
-    var TotalDiapositivas = 81;
+    var TotalDiapositivas = 34;
 </script>
 <script src="../js/index.js"></script>
 <script src="https://kit.fontawesome.com/c982b33cb5.js" crossorigin="anonymous"></script>
