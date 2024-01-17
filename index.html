@@ -5,51 +5,180 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escuela del Código</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;1,100;1,200&family=Titillium+Web:ital,wght@0,200;0,300;0,400;1,200&display=swap');
 
         body {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
             margin: 0;
             font-family: 'Titillium Web', sans-serif;
-        }
-
-        header {
-            width: 100%;
-            height: 110px;
-            background-color: black;
+            background-color: rgb(0, 0, 0);
             display: flex;
             align-items: center;
+            justify-content: center;
+            transition: all 1s ease-in-out;
         }
 
-        header nav {
-            display: flex;
+        body.final {
+            background-color: #ffffff;
+        }
+
+        main {
+            overflow: hidden;
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background-color: #2c2c2c;
+            transition: all 1s ease-in-out;
+            transform-origin: center center;
+        }
+
+        /* 
+        main:hover {
+            transform: rotate(90deg);
+        } */
+
+        main aside {
+            position: absolute;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #ffffff;
+            transition: all 1s ease-in-out;
+        }
+
+        main.final {
+            animation: anim_main 1s ease-in-out forwards;
+        }
+
+        @keyframes anim_main {
+            0% {
+                width: 200px;
+                height: 100px;
+                border-radius: 0%;
+            }
+
+            10% {
+                width: 400px;
+                height: 200px;
+                border-radius: 0%;
+            }
+
+            30% {
+                width: 97%;
+                height: 93%;
+            }
+
+            40% {
+                width: 97%;
+                height: 93%;
+                border-radius: 0px;
+
+            }
+
+            50% {
+                width: 97%;
+                height: 93%;
+                border-radius: 20px;
+                box-shadow: 0px 0px 10px 1px rgb(0, 0, 0);
+            }
+
+
+            100% {
+                width: 97%;
+                height: 93%;
+                border-radius: 20px;
+                box-shadow: 0px 0px 10px 1px rgb(8, 8, 8);
+            }
+        }
+
+        aside.final {
+
+            animation: anim_aside 1s ease-in-out forwards;
+        }
+
+        @keyframes anim_aside {
+
+            40% {
+                width: 50%;
+                height: 100%;
+            }
+
+            50% {
+                width: 80%;
+                height: calc(100% - 10px);
+                margin-top: 5px;
+                margin-right: 5px;
+                border-radius: 20px;
+            }
+
+            100% {
+                width: 80%;
+                height: calc(100% - 10px);
+                margin-top: 5px;
+                margin-right: 5px;
+                border-radius: 20px;
+            }
+        }
+
+        main span {
+            color: white;
+            width: 18%;
+            font-size: 1.7vw;
+
+            left: 10px;
+            top: 10px;
+            position: absolute;
+            transition: all 1s ease-in-out;
 
         }
 
-        header span {
+        main span i {
+            background-color: #F2F2F2;
+            color: #2c2c2c;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 20px;
+            padding: 5px;
+            margin-right: 5px;
 
-            margin: 0;
-            margin-left: 20px;
-            font-size: 60px;
-            color: rgb(255, 255, 255);
-            text-shadow: 0px 0px 10px rgb(0, 0, 0);
+        }
+
+        @media (max-width:700px) {
+            main.final {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                border-radius: 0%;
+                animation: none;
+            }
+
+            body.final {
+                background-color: #85aef5;
+            }
         }
     </style>
 </head>
 
-<body>
-    <header>
-        <span>
-            Escuela del Código
-        </span>
-        <nav>
-            <a href="http://187.217.4.141/~edc/moodle/" target="_blank">Moodle</a>
-            <a href="cod_r.html" target="_blank">Código</a>
-            <a href="http://informes.edcpilares.com.mx" target="_blank">Informes</a>
-        </nav>
-    </header>
-    <main></main>
-    <footer></footer>
+<body class="final">
+    <main class="final">
+        <span><i class="fa-solid fa-terminal"></i>Escuela del Código</span>
+        <aside class="final">
+
+        </aside>
+    </main>
 </body>
+<script>
+    $('main').on("click", function () {
+
+        $('main').toggleClass("final");
+        $('aside').toggleClass("final");
+        $('body').toggleClass("final");
+    });
+</script>
+<script src="https://kit.fontawesome.com/c982b33cb5.js" crossorigin="anonymous"></script>
 
 </html>
