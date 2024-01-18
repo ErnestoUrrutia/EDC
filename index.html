@@ -10,191 +10,272 @@
         @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;1,100;1,200&family=Titillium+Web:ital,wght@0,200;0,300;0,400;1,200&display=swap');
 
         body {
-            width: 100vw;
-            height: 100vh;
-            position: relative;
             margin: 0;
+            background-color: black;
             font-family: 'Titillium Web', sans-serif;
-            background-color: rgb(0, 0, 0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 1s ease-in-out;
+            width: 100%;
+
+
         }
 
-        body.final {
+
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: rgb(167, 167, 167);
+        }
+
+        ::-webkit-scrollbar-thumb {
+
             background-color: #ffffff;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
         }
 
-        main {
-            overflow: hidden;
-            position: absolute;
-            width: 200px;
-            height: 100px;
-            background-color: #2c2c2c;
-            transition: all 1s ease-in-out;
-            transform-origin: center center;
+        ::-webkit-scrollbar-track {
+            background-color: #000000;
         }
 
-        /* 
-        main:hover {
-            transform: rotate(90deg);
-        } */
-
-        main aside {
-            position: absolute;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background-color: #ffffff;
-            transition: all 1s ease-in-out;
-        }
-
-        main.final {
-            animation: anim_main 1s ease-in-out forwards;
-        }
-
-        @keyframes anim_main {
-            0% {
-                width: 200px;
-                height: 100px;
-                border-radius: 0%;
-            }
-
-            10% {
-                width: 400px;
-                height: 200px;
-                border-radius: 0%;
-            }
-
-            30% {
-                width: 97%;
-                height: 93%;
-            }
-
-            40% {
-                width: 97%;
-                height: 93%;
-                border-radius: 0px;
-
-            }
-
-            50% {
-                width: 97%;
-                height: 93%;
-                border-radius: 20px;
-                box-shadow: 0px 0px 10px 1px rgb(0, 0, 0);
-            }
-
-
-            100% {
-                width: 97%;
-                height: 93%;
-                border-radius: 20px;
-                box-shadow: 0px 0px 10px 1px rgb(8, 8, 8);
-            }
-        }
-
-        aside.final {
-
-            animation: anim_aside 1s ease-in-out forwards;
-        }
-
-        @keyframes anim_aside {
-
-            40% {
-                width: 50%;
-                height: 100%;
-            }
-
-            50% {
-                width: 80%;
-                height: calc(100% - 10px);
-                margin-top: 5px;
-                margin-right: 5px;
-                border-radius: 20px;
-            }
-
-            100% {
-                width: 80%;
-                height: calc(100% - 10px);
-                margin-top: 5px;
-                margin-right: 5px;
-                border-radius: 20px;
-            }
-        }
-
-        main span {
-            color: white;
-            width: 18%;
-            font-size: 1.7vw;
-
-            left: 10px;
-            top: 10px;
-            position: absolute;
-            transition: all 1s ease-in-out;
+        #fondo img {
+            width: 100%;
 
         }
 
-        #logo {
-            position: absolute;
-            background-color: #F2F2F2;
-            left: 50%;
-            top: 15%;
-            
-            color: #2c2c2c;
-            font-weight: bold;
-            border-radius: 5px;
-            font-size: 30px;
-            padding: 5px;
-            
-
-        }
-        #logo.final{
-            position: static;
+        #fondo {
+            opacity: 0.5;
+            position: fixed;
             left: 0;
             top: 0;
-            background-color: #F2F2F2;
-            color: #2c2c2c;
-            font-weight: bold;
-            border-radius: 5px;
-            font-size: 20px;
-            padding: 5px;
-            margin-right: 5px;
+            height: 100vh;
+            overflow: hidden;
+            width: 100%;
+            z-index: -1;
         }
-        @media (max-width:700px) {
-            main.final {
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                border-radius: 0%;
-                animation: none;
-            }
 
-            body.final {
-                background-color: #85aef5;
-            }
+        header {
+            color: white;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            transition: all 0.3s ease-in-out;
+            z-index: 10;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        header.pegado {
+            backdrop-filter: blur(20px);
+
+        }
+
+        header span {
+
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        header nav a i {
+
+            margin: 0 5px;
+        }
+
+        header nav a:last-child {
+            margin-right: 0;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            font-size: 18px;
+            text-decoration: none;
+
+            margin-right: 5px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        header nav a:hover {
+            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
+        }
+
+
+        main {
+            scroll-behavior: smooth;
+            margin: auto;
+            width: 95%;
+            max-width: 1100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        main article {
+
+            flex-shrink: 0;
+            position: relative;
+            width: 100%;
+            height: 500px;
+            margin-top: 20px;
+            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            background-color: rgba(240, 248, 255, 0.548);
+            transition: all 0.3s ease-in-out;
+        }
+
+        main article img {
+
+            position: absolute;
+            width: 300px;
+            right: 0;
+            top: -10px;
+            filter: drop-shadow(5px 5px 10px #00000077);
+        }
+
+        main article span {
+            position: relative;
+            color: white;
+
+            font-size: 30px;
+            left: 20px;
+            top: 20px;
+            font-weight: bold;
+
+        }
+
+        main article a {
+            text-align: center;
+            width: 200px;
+            padding: 10px 20px;
+            font-size: 20px;
+            position: absolute;
+            left: 5px;
+            bottom: 5px;
+            background-color: rgb(12, 12, 85);
+            text-decoration: none;
+            color: white;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        main article a:hover {
+            background-color: rgb(14, 134, 40);
+        }
+        main section{
+            overflow: hidden;
+            width: 100%;
+            display: flex;
+            transition: all 0.3s ease-in-out;
+        }
+        footer {
+
+            bottom: 0;
+            width: 95%;
+            max-width: 1100px;
+            margin-top: 100px;
+            width: 100%;
+            height: 50px;
+            background-color: rgb(63, 63, 63);
+        }
+        #navegacion{
+            margin-top: 100px;
+            width: 100%;
+            height: 60px;
+            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            background-color: rgba(240, 248, 255, 0.548);
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #navegacion span{
+            cursor: pointer;
+           font-weight: bold;
+           font-size: 20px;
+            padding: 10px 25px;
+            color: white;
+            transition: all 0.3s ease-in-out;
+         
+            border-radius: 10px;
+            
+        }
+        #navegacion span:hover{
+            background-color: rgb(1, 51, 1);
+            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 
-<body class="">
-    <main class="">
-        <span><i id="logo" class=" fa-solid fa-terminal"></i>Escuela del Código</span>
-        <aside class="">
-
-        </aside>
+<body>
+    <div id="fondo">
+        <img src="recursos/imagenes/programming-7649719_1920.jpg" alt="" srcset="">
+    </div>
+    <main>
+        <header class="pegado">
+            <span><i style="background-color: rgb(255, 255, 255);font-weight: bold; color: rgb(0, 0, 0); padding: 5px;border-radius: 5px; margin-right: 5px;"
+                    class="fa-solid fa-terminal"></i>Escuela del Código</span>
+            <nav>
+                <a href="../index.php"><i class="fa-solid fa-house"></i>Inicio</a>
+                <a href="http://187.217.4.141/~edc/moodle/" target="_blank"><i class="fa-solid fa-pencil"></i>Moodle</a>
+                <a href="cod_r.html" target="_blank"><i class="fa-solid fa-keyboard"></i>Código</a>
+                <a href="#"><i class="fa-solid fa-question"></i></a>
+                <a href="#"><i class="fa-solid fa-gear"></i></a>
+            </nav>
+        </header>
+        <div id="navegacion">
+            <span>Inicio</span>
+            <span>Pensamiento C.</span>
+            <span id="btn_dw">Desarrollo Web</span>
+            <span>Base de Datos</span>
+            <span>Esp. Python</span>
+            <span>Esp. Java</span>
+        </div>
+        <section>
+            <article>
+                <span>Pensamiento Computacional</span>
+                <img src="recursos/imagenes/pensamientoComputacional.png" alt="" srcset="">
+                <a href="PC/">Presentaciones</a>
+            </article>
+            <article>
+                <span>Desarrollo Web</span>
+                <img src="recursos/imagenes/DesarrolloWeb.png" alt="">
+                <a href="DW/">Presentaciones</a>
+            </article>
+            <article>
+                <span>Base de Datos</span>
+                <img src="recursos/imagenes/basedeDatos.png" alt="">
+                <a href="BD/">Presentaciones</a>
+            </article>
+            <article>
+                <span>Python</span>
+                <img src="recursos/imagenes/python.png" alt="">
+                <a href="PY/">Presentaciones</a>
+            </article>
+            <article>
+                <span>Java</span>
+                <img src="recursos/imagenes/java.png" alt="">
+                <a href="Java/">Presentaciones</a>
+            </article>
+        </section>
+        <footer></footer>
     </main>
+
 </body>
-<script>
-    $('main').on("click", function () {
-
-        $('main').toggleClass("final");
-        $('aside').toggleClass("final");
-        $('body').toggleClass("final");
-        $('#logo').toggleClass("final")
-    });
-</script>
 <script src="https://kit.fontawesome.com/c982b33cb5.js" crossorigin="anonymous"></script>
-
+<script>
+$('#btn_dw').on("click",function(){
+  
+    $('section').css("left","100%")
+})
+</script>
 </html>
