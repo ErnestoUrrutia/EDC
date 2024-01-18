@@ -136,7 +136,24 @@
 
         }
 
-        main span i {
+        #logo {
+            position: absolute;
+            background-color: #F2F2F2;
+            left: 50%;
+            top: 15%;
+            
+            color: #2c2c2c;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 30px;
+            padding: 5px;
+            
+
+        }
+        #logo.final{
+            position: static;
+            left: 0;
+            top: 0;
             background-color: #F2F2F2;
             color: #2c2c2c;
             font-weight: bold;
@@ -144,9 +161,7 @@
             font-size: 20px;
             padding: 5px;
             margin-right: 5px;
-
         }
-
         @media (max-width:700px) {
             main.final {
                 width: 100%;
@@ -163,10 +178,10 @@
     </style>
 </head>
 
-<body class="final">
-    <main class="final">
-        <span><i class="fa-solid fa-terminal"></i>Escuela del Código</span>
-        <aside class="final">
+<body class="">
+    <main class="">
+        <span><i id="logo" class=" fa-solid fa-terminal"></i>Escuela del Código</span>
+        <aside class="">
 
         </aside>
     </main>
@@ -177,6 +192,7 @@
         $('main').toggleClass("final");
         $('aside').toggleClass("final");
         $('body').toggleClass("final");
+        $('#logo').toggleClass("final")
     });
 </script>
 <script src="https://kit.fontawesome.com/c982b33cb5.js" crossorigin="anonymous"></script>
