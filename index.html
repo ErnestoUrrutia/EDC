@@ -118,20 +118,24 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            
         }
 
         main article {
 
+            display: none;
             flex-shrink: 0;
             position: relative;
             width: 100%;
-            height: 500px;
-            margin-top: 20px;
+            height: 100%;
+            left: 0;
             box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
             background-color: rgba(240, 248, 255, 0.548);
             transition: all 0.3s ease-in-out;
+            max-height: 500px;
         }
+
 
         main article img {
 
@@ -171,47 +175,59 @@
         main article a:hover {
             background-color: rgb(14, 134, 40);
         }
-        main section{
-            overflow: hidden;
+
+        main section {
+
             width: 100%;
             display: flex;
+            flex-direction: column;
+         
+            align-items: center;
             transition: all 0.3s ease-in-out;
+            margin-top: 20px;
+            height: calc(100vh - 150px);
+           
         }
-        footer {
 
-            bottom: 0;
-            width: 95%;
-            max-width: 1100px;
-            margin-top: 100px;
+        footer {
             width: 100%;
-            height: 50px;
+            margin-top: 10px;
+            width: 100%;
+            height: 120px;
             background-color: rgb(63, 63, 63);
         }
-        #navegacion{
-            margin-top: 100px;
+
+        #navegacion {
+            margin-top: 10px;
             width: 100%;
             height: 60px;
-            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
             border-radius: 10px;
-            background-color: rgba(240, 248, 255, 0.548);
+            /* background-color: rgba(240, 248, 255, 0.548); */
+            backdrop-filter: blur(5px);
             display: flex;
             justify-content: space-evenly;
             align-items: center;
         }
-        #navegacion span{
+
+        #navegacion span {
             cursor: pointer;
-           font-weight: bold;
-           font-size: 20px;
-            padding: 10px 25px;
+            font-weight: bold;
+            font-size: 22px;
             color: white;
+            padding-left: 5px;
             transition: all 0.3s ease-in-out;
-         
-            border-radius: 10px;
-            
+            border-bottom: 3px solid transparent;
+            border-left: 3px solid transparent;
+            border-bottom-left-radius: 5px;
         }
-        #navegacion span:hover{
-            background-color: rgb(1, 51, 1);
-            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+
+
+
+        #navegacion span:hover {
+            border-bottom: 3px solid rgba(255, 255, 255, 0.8);
+
+
         }
     </style>
 </head>
@@ -222,7 +238,7 @@
     </div>
     <main>
         <header class="pegado">
-            <span><i style="background-color: rgb(255, 255, 255);font-weight: bold; color: rgb(0, 0, 0); padding: 5px;border-radius: 5px; margin-right: 5px;"
+            <span><i style="background-color: rgb(255, 255, 255);font-weight: bold; color: rgb(0, 0, 0); padding: 5px;border-radius: 5px; margin-right: 15px;"
                     class="fa-solid fa-terminal"></i>Escuela del Código</span>
             <nav>
                 <a href="../index.php"><i class="fa-solid fa-house"></i>Inicio</a>
@@ -233,35 +249,40 @@
             </nav>
         </header>
         <div id="navegacion">
-            <span>Inicio</span>
-            <span>Pensamiento C.</span>
-            <span id="btn_dw">Desarrollo Web</span>
-            <span>Base de Datos</span>
-            <span>Esp. Python</span>
-            <span>Esp. Java</span>
+            <span mostrar="sde_HOME">Inicio</span>
+            <span mostrar="sde_PC">Pensamiento C.</span>
+            <span mostrar="sde_DW">Desarrollo Web</span>
+            <span mostrar="sde_BD">Base de Datos</span>
+            <span mostrar="sde_PY">Esp. Python</span>
+            <span mostrar="sde_JA">Esp. Java</span>
         </div>
         <section>
-            <article>
+            <article id="sde_HOME" class="seleccionado">
+                <span>Inicio</span>
+                <img src="recursos/imagenes/pensamientoComputacional.png" alt="" srcset="">
+                <a href="PC/">Presentaciones</a>
+            </article>
+            <article id="sde_PC">
                 <span>Pensamiento Computacional</span>
                 <img src="recursos/imagenes/pensamientoComputacional.png" alt="" srcset="">
                 <a href="PC/">Presentaciones</a>
             </article>
-            <article>
+            <article id="sde_DW">
                 <span>Desarrollo Web</span>
                 <img src="recursos/imagenes/DesarrolloWeb.png" alt="">
                 <a href="DW/">Presentaciones</a>
             </article>
-            <article>
+            <article id="sde_BD">
                 <span>Base de Datos</span>
                 <img src="recursos/imagenes/basedeDatos.png" alt="">
                 <a href="BD/">Presentaciones</a>
             </article>
-            <article>
+            <article id="sde_PY">
                 <span>Python</span>
                 <img src="recursos/imagenes/python.png" alt="">
                 <a href="PY/">Presentaciones</a>
             </article>
-            <article>
+            <article id="sde_JA">
                 <span>Java</span>
                 <img src="recursos/imagenes/java.png" alt="">
                 <a href="Java/">Presentaciones</a>
@@ -273,9 +294,43 @@
 </body>
 <script src="https://kit.fontawesome.com/c982b33cb5.js" crossorigin="anonymous"></script>
 <script>
-$('#btn_dw').on("click",function(){
-  
-    $('section').css("left","100%")
-})
+    $('#sde_HOME').css("display", "flex");
+    function ocultarSlideVisible() {
+        $('article.seleccionado').css("transform", "scale(0.8)");
+
+        setTimeout(function () {
+            $('article.seleccionado').css("left", "-100px");
+            $('article.seleccionado').css("opacity", "0");
+        }, 300);
+        setTimeout(function () {
+            $('article.seleccionado').css("display", "none");
+            $('article.seleccionado').removeClass("seleccionado");
+        }, 600);
+        
+
+    }
+    $('#navegacion span').on("click", function () {
+        ocultarSlideVisible();
+        var id_actual = this;
+
+        setTimeout(function () {
+            $('#' + $(id_actual).attr("mostrar")).css("transform", "scale(0.8)");
+            $('#' + $(id_actual).attr("mostrar")).css("display", "flex");
+            $('#' + $(id_actual).attr("mostrar")).css("left", "-100px");
+            $('#' + $(id_actual).attr("mostrar")).css("opacity", "0");
+        }, 600);
+
+        setTimeout(function () {
+            $('#' + $(id_actual).attr("mostrar")).css("left", "0px");
+            $('#' + $(id_actual).attr("mostrar")).css("opacity", "1");
+
+        }, 800);
+        setTimeout(function () {
+            $('#' + $(id_actual).attr("mostrar")).css("transform", "scale(1)");
+            $('#' + $(id_actual).attr("mostrar")).addClass("seleccionado");
+        }, 1000);
+
+    })
 </script>
+
 </html>
