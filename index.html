@@ -118,7 +118,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            
+
         }
 
         main article {
@@ -129,9 +129,9 @@
             width: 100%;
             height: 100%;
             left: 0;
-            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.9);
             border-radius: 10px;
-            background-color: rgba(240, 248, 255, 0.548);
+            backdrop-filter: blur(10px);
             transition: all 0.3s ease-in-out;
             max-height: 500px;
         }
@@ -140,10 +140,33 @@
         main article img {
 
             position: absolute;
-            width: 300px;
-            right: 0;
-            top: -10px;
+            width: 400px;
+            right: -60px;
+            top: -60px;
             filter: drop-shadow(5px 5px 10px #00000077);
+            animation: imagenArticle 10s infinite;
+        }
+
+        @keyframes imagenArticle {
+            0% {
+                transform: translate(0px, 0px);
+            }
+
+            25% {
+                transform: translate(10px, 10px);
+            }
+
+            50% {
+                transform: translate(20px, -10px);
+            }
+
+            75% {
+                transform: translate(0px, -20px);
+            }
+
+            100% {
+                transform: translate(0px, 0px);
+            }
         }
 
         main article span {
@@ -163,7 +186,7 @@
             padding: 10px 20px;
             font-size: 20px;
             position: absolute;
-            left: 5px;
+            right: 5px;
             bottom: 5px;
             background-color: rgb(12, 12, 85);
             text-decoration: none;
@@ -177,16 +200,16 @@
         }
 
         main section {
-
+            min-height: 400px;
             width: 100%;
             display: flex;
             flex-direction: column;
-         
             align-items: center;
             transition: all 0.3s ease-in-out;
-            margin-top: 20px;
-            height: calc(100vh - 150px);
-           
+            margin-top: 100px;
+            height: calc(100vh - 360px);
+
+
         }
 
         footer {
@@ -194,7 +217,9 @@
             margin-top: 10px;
             width: 100%;
             height: 120px;
-            background-color: rgb(63, 63, 63);
+            background-color: rgb(31, 31, 31);
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
         }
 
         #navegacion {
@@ -229,6 +254,21 @@
 
 
         }
+
+        .videos {
+            position: absolute;
+            top: 80px;
+            left: 20px;
+            width: 500px;
+            min-height: 300px;
+            height: calc(84% - 20px);
+            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            overflow-y: scroll;
+        }
+        .videos iframe{
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -260,31 +300,69 @@
             <article id="sde_HOME" class="seleccionado">
                 <span>Inicio</span>
                 <img src="recursos/imagenes/pensamientoComputacional.png" alt="" srcset="">
+                <div class="videos"></div>
                 <a href="PC/">Presentaciones</a>
             </article>
             <article id="sde_PC">
                 <span>Pensamiento Computacional</span>
                 <img src="recursos/imagenes/pensamientoComputacional.png" alt="" srcset="">
+                <div class="videos">
+                    
+                    <iframe width="90%" src="https://www.youtube.com/embed/Q3IHuj3r32g" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                    <br>
+                    <iframe width="90%" src="https://www.youtube.com/embed/KXNtVK4jKpY" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                    <br>
+                    <iframe width="90%" src="https://www.youtube.com/embed/ZPMpxKOGXkk" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                    <br>
+                    <iframe width="90%" src="https://www.youtube.com/embed/BKT_sF1eRho" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                    <br>
+                    <iframe width="90%" src="https://www.youtube.com/embed/tOYlBnCmhjM" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                    <br>
+                    <iframe width="90%" src="https://www.youtube.com/embed/BJwyUI6-UGs" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                    <br>
+                </div>
                 <a href="PC/">Presentaciones</a>
             </article>
             <article id="sde_DW">
                 <span>Desarrollo Web</span>
                 <img src="recursos/imagenes/DesarrolloWeb.png" alt="">
+                <div class="videos"></div>
                 <a href="DW/">Presentaciones</a>
             </article>
             <article id="sde_BD">
                 <span>Base de Datos</span>
                 <img src="recursos/imagenes/basedeDatos.png" alt="">
+                <div class="videos"></div>
                 <a href="BD/">Presentaciones</a>
             </article>
             <article id="sde_PY">
                 <span>Python</span>
                 <img src="recursos/imagenes/python.png" alt="">
+                <div class="videos"></div>
                 <a href="PY/">Presentaciones</a>
             </article>
             <article id="sde_JA">
                 <span>Java</span>
                 <img src="recursos/imagenes/java.png" alt="">
+                <div class="videos"></div>
                 <a href="Java/">Presentaciones</a>
             </article>
         </section>
@@ -306,7 +384,7 @@
             $('article.seleccionado').css("display", "none");
             $('article.seleccionado').removeClass("seleccionado");
         }, 600);
-        
+
 
     }
     $('#navegacion span').on("click", function () {
