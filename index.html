@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
 
         body {
             margin: 0;
-            background-color: black;
+            background-color: rgb(0, 0, 0);
             font-family: 'Titillium Web', sans-serif;
             width: 100%;
 
@@ -36,7 +36,7 @@
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #000000;
+            background-color: #00000000;
         }
 
         #fondo img {
@@ -44,19 +44,27 @@
 
         }
 
+        body:hover #fondo {
+
+            top: -100px;
+        }
+
         #fondo {
+
             opacity: 0.5;
             position: fixed;
             left: 0;
             top: 0;
             height: 100vh;
-            overflow: hidden;
+
             width: 100%;
             z-index: -1;
+            transition: all 3s ease-in-out;
         }
 
         header {
             color: white;
+
             width: 100%;
             height: 60px;
             display: flex;
@@ -70,10 +78,7 @@
             border-bottom-right-radius: 10px;
         }
 
-        header.pegado {
-            backdrop-filter: blur(20px);
 
-        }
 
         header span {
 
@@ -129,15 +134,15 @@
             width: 100%;
             height: 100%;
             left: 0;
-            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.9);
+            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
             border-radius: 10px;
-            backdrop-filter: blur(10px);
+            background-color: rgba(71, 71, 71, 0.5);
             transition: all 0.3s ease-in-out;
             max-height: 500px;
         }
 
 
-        main article img {
+        main article>.imgPresentacionTit {
 
             position: absolute;
             width: 400px;
@@ -215,7 +220,7 @@
         footer {
             width: 100%;
             margin-top: 10px;
-            width: 100%;
+            max-width: 1100px;
             height: 120px;
             background-color: rgb(31, 31, 31);
             border-top-right-radius: 10px;
@@ -229,7 +234,7 @@
             box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             /* background-color: rgba(240, 248, 255, 0.548); */
-            backdrop-filter: blur(5px);
+            background-color: rgba(71, 71, 71, 0.5);
             display: flex;
             justify-content: space-evenly;
             align-items: center;
@@ -265,7 +270,7 @@
             width: 500px;
             min-height: 300px;
             height: calc(84% - 20px);
-            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
+            /*box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);*/
             border-radius: 10px;
             overflow-y: scroll;
         }
@@ -278,19 +283,143 @@
             box-shadow: 0px 0px 10px 1px black;
 
         }
+
+        .imgPdfDownload {
+            cursor: pointer;
+            width: 38px;
+            height: 40px;
+            border-radius: 10px;
+            background-color: rgb(12, 12, 85);
+            padding: 5px;
+            position: absolute;
+            bottom: 5px;
+            right: 250px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .imgPdfDownload img {
+            width: 100%;
+        }
+
+        .imgPdfDownload:hover {
+            background-color: rgb(14, 134, 40);
+        }
+
+        @media only screen and (max-width: 1400px) {
+            main {
+                zoom: 0.8;
+            }
+
+            footer {
+                position: fixed;
+                bottom: 0;
+                margin: auto;
+            }
+        }
+
+        #imagenesInicio {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            right: 0;
+
+        }
+
+
+        #imagenesInicio img {
+            width: 100px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0px 0px 10px 1px rgba(255, 255, 255, 0.473);
+            position: absolute;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 10;
+            transform: translate(0, 0);
+
+        }
+
+        #imagenesInicio img:hover {
+            border-radius: 25%;
+            box-shadow: 0px 0px 10px 1px rgb(255, 255, 255);
+           
+        }
+
+        #imagenesInicio img:nth-child(1) {
+            width: 350px;
+            right: -25px;
+            top: -25px;
+
+            animation: moverInicio 15s 0s infinite ease-in-out;
+        }
+
+        #imagenesInicio img:nth-child(2) {
+            width: 250px;
+            right: 5px;
+            bottom: 5px;
+
+            animation: moverInicio 15s 1s infinite ease-in-out;
+        }
+
+        #imagenesInicio img:nth-child(3) {
+            width: 150px;
+            right: 300px;
+            top: 10px;
+
+            animation: moverInicio 15s 2s infinite ease-in-out;
+        }
+
+        #imagenesInicio img:nth-child(4) {
+            width: 70px;
+            right: 300px;
+            bottom: 200px;
+
+            animation: moverInicio 15s 3s infinite ease-in-out;
+        }
+
+        #sde_HOME p {
+
+            width: 500px;
+            height: 100px;
+            position: absolute;
+            bottom: 10px;
+            left: 15px;
+        }
+
+        @keyframes moverInicio {
+
+            0% {
+                transform: translate(0px, 0px);
+            }
+
+            25% {
+                transform: translate(10px, 10px);
+            }
+
+            50% {
+                transform: translate(-10px, 20px);
+            }
+
+            75% {
+                transform: translate(-20px, 10px);
+            }
+
+            100% {
+                transform: translate(0px, 0px);
+            }
+        }
     </style>
 </head>
 
 <body>
     <div id="fondo">
-        <img src="recursos/imagenes/programming-7649719_1920.jpg" alt="" srcset="">
+        <img src="recursos/imagenes/f.png" alt="" srcset="">
     </div>
     <main>
-        <header class="pegado">
+        <header>
             <span><i style="background-color: rgb(255, 255, 255);font-weight: bold; color: rgb(0, 0, 0); padding: 5px;border-radius: 5px; margin-right: 15px;"
                     class="fa-solid fa-terminal"></i>Escuela del Código</span>
             <nav>
-                <a href="../index.php"><i class="fa-solid fa-house"></i>Inicio</a>
+                <a href="#"><i class="fa-solid fa-circle-info"></i>Informes</a>
                 <a href="http://187.217.4.141/~edc/moodle/" target="_blank"><i class="fa-solid fa-pencil"></i>Moodle</a>
                 <a href="cod_r.html" target="_blank"><i class="fa-solid fa-keyboard"></i>Código</a>
                 <a href="#"><i class="fa-solid fa-question"></i></a>
@@ -307,14 +436,20 @@
         </div>
         <section>
             <article id="sde_HOME" class="seleccionado">
-                <span>Inicio</span>
-                <img src="recursos/imagenes/pensamientoComputacional.png" alt="" srcset="">
-                <div class="videos"></div>
-                <a href="PC/">Presentaciones</a>
+                <span>Bienevenido a <i><strong>edcpilares</strong></i></span>
+                <div id="imagenesInicio">
+                    <img src="recursos/imagenes/Tepantongo.jpg" alt="" srcset="">
+                    <img src="recursos/imagenes/Real.png" alt="" srcset="">
+                    <img src="recursos/imagenes/PRDSM.jpg" alt="">
+                    <img src="recursos/imagenes/Tepantongo2.jpg" alt="" srcset="">
+                </div>
+                <p>
+
+                </p>
             </article>
             <article id="sde_PC">
                 <span>Pensamiento Computacional</span>
-                <img src="recursos/imagenes/pensamientoComputacional.png" alt="" srcset="">
+                <img class="imgPresentacionTit" src="recursos/imagenes/pensamientoComputacional.png" alt="" srcset="">
                 <div class="videos">
 
                     <iframe width="90%" src="https://www.youtube.com/embed/Q3IHuj3r32g" title="YouTube video player"
@@ -349,10 +484,12 @@
                     <br>
                 </div>
                 <a href="PC/">Presentaciones</a>
+                <a class="imgPdfDownload" href="PC/Material.pdf" target="_blank"><img
+                        src="recursos/imagenes/pdfDownload.png" alt="" srcset=""></a>
             </article>
             <article id="sde_DW">
                 <span>Desarrollo Web</span>
-                <img src="recursos/imagenes/DesarrolloWeb.png" alt="">
+                <img class="imgPresentacionTit" src="recursos/imagenes/DesarrolloWeb.png" alt="">
                 <div class="videos">
                     <iframe width="90%" src="https://www.youtube.com/embed/rbuYtrNUxg4" title="YouTube video player"
                         frameborder="0"
@@ -373,10 +510,12 @@
                     <br>
                 </div>
                 <a href="DW/">Presentaciones</a>
+                <a class="imgPdfDownload" href="DW/Material.pdf" target="_blank"><img
+                        src="recursos/imagenes/pdfDownload.png" alt="" srcset=""></a>
             </article>
             <article id="sde_BD">
                 <span>Base de Datos</span>
-                <img src="recursos/imagenes/basedeDatos.png" alt="">
+                <img class="imgPresentacionTit" src="recursos/imagenes/basedeDatos.png" alt="">
                 <div class="videos">
                     <iframe width="90%" src="https://www.youtube.com/embed/ZGtdC7xj4M0?si=Z1aNrOf5HOzdqMpU"
                         title="YouTube video player" frameborder="0"
@@ -385,18 +524,24 @@
                     <br>
                 </div>
                 <a href="BD/">Presentaciones</a>
+                <a class="imgPdfDownload" href="BD/Material.pdf" target="_blank"><img
+                        src="recursos/imagenes/pdfDownload.png" alt="" srcset=""></a>
             </article>
             <article id="sde_PY">
                 <span>Python</span>
-                <img src="recursos/imagenes/python.png" alt="">
+                <img class="imgPresentacionTit" src="recursos/imagenes/python.png" alt="">
                 <div class="videos"></div>
                 <a href="PY/">Presentaciones</a>
+                <a class="imgPdfDownload" href="PY/Material.pdf" target="_blank"><img
+                        src="recursos/imagenes/pdfDownload.png" alt="" srcset=""></a>
             </article>
             <article id="sde_JA">
                 <span>Java</span>
-                <img src="recursos/imagenes/java.png" alt="">
+                <img class="imgPresentacionTit" src="recursos/imagenes/java.png" alt="">
                 <div class="videos"></div>
                 <a href="Java/">Presentaciones</a>
+                <a class="imgPdfDownload" href="Java/Material.pdf" target="_blank"><img
+                        src="recursos/imagenes/pdfDownload.png" alt="" srcset=""></a>
             </article>
         </section>
         <footer></footer>

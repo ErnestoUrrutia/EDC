@@ -19,7 +19,7 @@
         <nav>
             <a href="../"><i class="fa-solid fa-house"></i>Inicio</a>
             <a href="http://187.217.4.141/~edc/moodle/" target="_blank"><i class="fa-solid fa-pencil"></i>Moodle</a>
-            <a href="cod_r.html" target="_blank"><i class="fa-solid fa-keyboard"></i>Código</a>
+            <a href="../cod_r.html" target="_blank"><i class="fa-solid fa-keyboard"></i>Código</a>
             <a href="#" id="icono_recursos"><i class="fa-solid fa-code"></i>Recursos</a>
         </nav>
 
