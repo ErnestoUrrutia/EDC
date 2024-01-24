@@ -341,7 +341,7 @@
         #imagenesInicio img:hover {
             border-radius: 25%;
             box-shadow: 0px 0px 10px 1px rgb(255, 255, 255);
-           
+
         }
 
         #imagenesInicio img:nth-child(1) {
@@ -407,6 +407,50 @@
                 transform: translate(0px, 0px);
             }
         }
+
+        #asideInformes a:visited {
+            color: rgb(15, 204, 9);
+        }
+
+        #asideInformes a:link {
+            color: rgb(15, 204, 9);
+        }
+
+        #asideInformes {
+            font-size: 14px;
+            padding: 10px;
+            color: white;
+            position: relative;
+            width: 400px;
+            height: 100%;
+            left: 0;
+            position: fixed;
+            background-color: rgba(51, 51, 51, 0.9);
+            box-shadow: 0px 5px 20px 4px black;
+            z-index: 20;
+            transition: all 0.3s ease-in-out;
+            overflow-y: scroll;
+
+        }
+
+        #cerrarInformes {
+            border: 1px solid white;
+            padding: 2px 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 25px;
+            color: white;
+            font-weight: bold;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            transition: all 0.3s ease-in-out;
+            background-color: rgb(131, 1, 1);
+        }
+
+        #cerrarInformes:hover {
+            background-color: red;
+        }
     </style>
 </head>
 
@@ -414,12 +458,91 @@
     <div id="fondo">
         <img src="recursos/imagenes/f.png" alt="" srcset="">
     </div>
+    <aside id="asideInformes">
+        <i id="cerrarInformes" class="fa-solid fa-xmark"></i>
+        <h1>
+            ¿Qué es la escuela del código?
+        </h1>
+        <p>
+            Es un programa impulsado por el gobierno en dónde invita a todo público a participar en los cursos
+            gratuitos de programación que se imparten en las Escuelas de Código en 140 sedes de los Puntos de
+            Innovación, Libertad, Arte, Educación y Saberes (PILARES). El objetivo es brindarle a la población más
+            opciones para incorporarse al campo laboral y la oportunidad de crecer profesionalmente. El único
+            requisito es contar con disponibilidad de 4 a 8 horas a la semana para asistir de manera presencial a
+            las clases.
+            <br><br>
+            Los cursos que se impartirán son los siguientes:
+            <br>
+            <br>&nbsp;- Pensamiento Computacional
+            <br>&nbsp;- Base de Datos
+            <br>&nbsp;- Desarrollo web para páginas HTML
+            <br>&nbsp;- Análisis de datos nivel junior (Phyton)
+            <br>&nbsp;- Programación nivel junior (Java)
+            <br><br>
+            La duración de los curso va de 60 hasta 120 horas dependiendo de los contenidos de cada uno. Asimismo,
+            tendrás dos opciones para tomar tus clases: de forma semanal con sesiones de 2 horas diarias, 4 días a
+            la semana; o únicamente los sábados con sesiones de 4 horas. Ambas modalidades se imparten de manera
+            presencial.
+            <br><br>
+            Entre las habilidades que podrás adquirir están la creación de páginas web, escritura de código para
+            sitios web, carga de información y tablas en una base de datos, además contarás con bases sólidas sobre
+            programación en Python y Java.
+            <br><br>
+            Al finalizar el curso, se te otorgará una constancia con valor curricular y recibirás acompañamiento
+            para integrarte al mercado laboral. Tendrás la oportunidad de realizar prácticas profesionales en la
+            Agencia Digital de Innovación Pública (ADIP) y recibir asesoramiento para entrar al campo laboral o
+            iniciar tu propio negocio.
+            <br><br>
+            Si estás interesado en alguno de los tres cursos, visita <a
+                href="https://escuelasdecodigo.cdmx.gob.mx">escuelasdecodigo.cdmx.gob.mx</a> para conocer más
+            detalles y realizar tu registro.
+        </p>
+        <h1>
+            ¿Cómo me inscribo?
+        </h1>
+        <p>
+            Para participar del programa en el PILARES <b>Tepantongo</b> ó <b>Real de San Martín</b> se
+            requiere esperar la apertura de una nueva convocatoria ya que dicho programa está compuesto por módulos
+            seriados en donde se llevan a cabo cuestionarios (exámenes) y tareas para determinar el desempeño de los
+            estudiantes, debido a ello existe un periodo de incorporación que tiene como fecha límite la tercer
+            sesión una vez iniciado el curso.
+            De igual forma en otros PILARES se abren continuamente convocatorias desde el primer módulo, puedes
+            consultar bases en: <a href="https://pilares.cdmx.gob.mx/inicio">https://pilares.cdmx.gob.mx/inicio</a>
+            <br>
+            Si lo deseas, puedes anexarte a el siguiente grupo el cual tiene la finalidad de publicar convocatorias
+            directas a los PILARES Tepantongo y Real de San Martín
+            <a target="_blank" href="https://chat.whatsapp.com/Ih3s3Lio4wtCMbWYacyWSg">Enlace al grupo</a>
+            <br>
+            <img style="width: 90%; margin: 20px;  border-radius: 10px;" src="recursos/imagenes/InvitacionQR.jpg" alt="" srcset="">
+            <br>
+        </p>
+        <h1>
+            ¿Cuánto dura el programa?
+        </h1>
+        <p>
+            El programa tiene una duración aproximada de 6 meses para el turno entre semana (martes a viernes, 2
+            horas por sesión) y de 10 meses para el turno sabatino (sábados con 4 horas por sesión).
+            <br>
+
+        </p>
+        <h1>
+            ¿Qué requisitos necesito?
+        </h1>
+        <p>
+            Únicamente se requiere de tu folio PILARES y tener conocimientos básicos de cómputo (preferentemente).
+            <br>
+            <strong>Observación:</strong> Todas las personas pueden ser participes del programa, sin embargo
+            aquellas que sean menores de 17 años no podrán recibir sus constancias correspondientes y estarán como
+            oyentes dentro del programa.
+        </p>
+
+    </aside>
     <main>
         <header>
             <span><i style="background-color: rgb(255, 255, 255);font-weight: bold; color: rgb(0, 0, 0); padding: 5px;border-radius: 5px; margin-right: 15px;"
                     class="fa-solid fa-terminal"></i>Escuela del Código</span>
             <nav>
-                <a href="#"><i class="fa-solid fa-circle-info"></i>Informes</a>
+                <a href="#" id="btn_informes"><i class="fa-solid fa-circle-info"></i>Informes</a>
                 <a href="http://187.217.4.141/~edc/moodle/" target="_blank"><i class="fa-solid fa-pencil"></i>Moodle</a>
                 <a href="cod_r.html" target="_blank"><i class="fa-solid fa-keyboard"></i>Código</a>
                 <a href="#"><i class="fa-solid fa-question"></i></a>
@@ -565,6 +688,13 @@
 
 
     }
+    $('#cerrarInformes').on("click", function () {
+        $('#asideInformes').css("left", "-100%");
+    });
+    $('#btn_informes').on("click", function () {
+        $('#asideInformes').css("left", "0");
+    });
+
     $('#navegacion span').on("click", function () {
         ocultarSlideVisible();
         var id_actual = this;
