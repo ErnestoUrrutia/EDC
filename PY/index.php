@@ -7,7 +7,16 @@
     <title>EDC (Python)</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../css/index.css">
-
+    <?php
+    $rutaCarpeta = 'presentaciones/';
+    $archivos = scandir($rutaCarpeta);
+    $archivosImagen = array_filter($archivos, function ($archivo) {
+        return pathinfo($archivo, PATHINFO_EXTENSION) == 'JPG';
+    });
+    foreach ($archivosImagen as $imagen) {
+        echo '<link rel="preload" href="' . $rutaCarpeta . $imagen . '" as="image">' . PHP_EOL;
+    }
+    ?>
 </head>
 
 <body>
@@ -60,6 +69,11 @@
 </body>
 <script>
     var TotalDiapositivas = 29;
+    var head = document.head || document.getElementsByTagName('head')[0];
+
+    // Loop para insertar 40 etiquetas <link> con atributos específicos
+
+
 </script>
 <script src="../js/index.js"></script>
 <script src="https://kit.fontawesome.com/c982b33cb5.js" crossorigin="anonymous"></script>

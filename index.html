@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escuela del Código</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" href="recursos/imagenes/favicon.ico" type="image/x-icon">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;1,100;1,200&family=Titillium+Web:ital,wght@0,200;0,300;0,400;1,200&display=swap');
 
@@ -42,16 +43,17 @@
         #fondo img {
             width: 100%;
 
+
         }
 
         body:hover #fondo {
-
-            top: -100px;
+            transform: translateY(-110px) rotate(10deg) scale(1.5);
+            opacity: 0.6;
         }
 
         #fondo {
 
-            opacity: 0.5;
+            opacity: 0.4;
             position: fixed;
             left: 0;
             top: 0;
@@ -71,13 +73,20 @@
             justify-content: space-between;
             align-items: center;
             position: sticky;
-            top: 0;
+            top: 10px;
             transition: all 0.3s ease-in-out;
-            z-index: 10;
+            z-index: 50;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
+            padding-left: 10px;
         }
 
+        header.pegado {
+
+            top: 0;
+            backdrop-filter: blur(50px);
+            box-shadow: 0px 0px 10px 1px rgb(255, 255, 255);
+        }
 
 
         header span {
@@ -112,6 +121,7 @@
 
         header nav a:hover {
             box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
+            background-color: rgba(71, 71, 71, 0.5);
         }
 
 
@@ -217,15 +227,7 @@
 
         }
 
-        footer {
-            width: 100%;
-            margin-top: 10px;
-            max-width: 1100px;
-            height: 120px;
-            background-color: rgb(31, 31, 31);
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
-        }
+
 
         #navegacion {
             margin-top: 10px;
@@ -306,17 +308,7 @@
             background-color: rgb(14, 134, 40);
         }
 
-        @media only screen and (max-width: 1400px) {
-            main {
-                zoom: 0.8;
-            }
 
-            footer {
-                position: fixed;
-                bottom: 0;
-                margin: auto;
-            }
-        }
 
         #imagenesInicio {
             position: absolute;
@@ -342,6 +334,12 @@
         #imagenesInicio img:hover {
             border-radius: 25%;
             box-shadow: 0px 0px 10px 1px rgb(255, 255, 255);
+
+        }
+
+        #imagenesInicio img:active {
+            opacity: 0.5;
+
 
         }
 
@@ -378,12 +376,18 @@
         }
 
         #sde_HOME p {
-
-            width: 500px;
-            height: 100px;
+            color: white;
+            width: 50%;
+            height: 200px;
             position: absolute;
-            bottom: 10px;
+            top: 50%;
+            transform: translateY(-50%);
             left: 15px;
+            font-size: 17px;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-y: scroll;
+            text-align: justify;
+
         }
 
         @keyframes moverInicio {
@@ -417,6 +421,10 @@
             color: rgb(15, 204, 9);
         }
 
+        #asideInformes.openclose {
+            left: 0px;
+        }
+
         #asideInformes {
             font-size: 14px;
             padding: 10px;
@@ -424,12 +432,12 @@
             position: relative;
             width: 400px;
             height: 100%;
-            left: 0;
+            left: -430px;
             position: fixed;
             background-color: rgba(51, 51, 51, 0.9);
             box-shadow: 0px 5px 20px 4px black;
-            z-index: 20;
-            transition: all 0.3s ease-in-out;
+            z-index: 60;
+            transition: all 1s ease-in-out;
             overflow-y: scroll;
 
         }
@@ -443,7 +451,7 @@
             color: white;
             font-weight: bold;
             position: absolute;
-            
+
             right: 5px;
             top: 5px;
             transition: all 0.3s ease-in-out;
@@ -453,10 +461,238 @@
         #cerrarInformes:hover {
             background-color: red;
         }
+
+        #loading {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            z-index: 100;
+            background-color: rgba(0, 0, 0, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            clip-path: circle(100% at 50% 50%);
+            transition: all 0.5s ease-in-out;
+
+        }
+
+        #loading.loadout {
+            clip-path: circle(0% at 50% 50%);
+        }
+
+        .efecto_load {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .efecto_load div {
+            position: absolute;
+            border: 4px solid #fff;
+            opacity: 1;
+            border-radius: 50%;
+            animation: efecto_load 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        }
+
+        .efecto_load div:nth-child(2) {
+            animation-delay: -0.5s;
+        }
+
+        @keyframes efecto_load {
+            0% {
+                top: 36px;
+                left: 36px;
+                width: 0;
+                height: 0;
+                opacity: 0;
+            }
+
+            4.9% {
+                top: 36px;
+                left: 36px;
+                width: 0;
+                height: 0;
+                opacity: 0;
+            }
+
+            5% {
+                top: 36px;
+                left: 36px;
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+
+            100% {
+                top: 0px;
+                left: 0px;
+                width: 72px;
+                height: 72px;
+                opacity: 0;
+            }
+        }
+
+        #loading span {
+            color: white;
+            position: absolute;
+        }
+
+        footer iframe {
+            width: 400px;
+            height: 400px;
+            margin: 10px;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 10px;
+            max-width: 1100px;
+
+            background-color: rgb(31, 31, 31);
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+
+        #icono_barras {
+            display: none;
+            position: absolute;
+            right: 10px;
+            font-size: 25px;
+            text-decoration: none;
+            color: white;
+            margin-right: 5px;
+
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        @media only screen and (max-width: 1400px) {
+            main {
+                zoom: 0.8;
+            }
+
+
+        }
+
+        @media only screen and (max-width: 650px) {
+            #navegacion::before {
+                content: 'Módulos\A';
+                white-space: pre;
+                font-weight: bold;
+                font-size: 20px;
+                color: white;
+            }
+
+            nav a {
+                padding: 5px 10px;
+                margin: 0;
+            }
+
+            nav {
+                display: flex;
+                flex-direction: column;
+                
+                position: fixed;
+                right: 0px;
+                backdrop-filter: blur(10px);
+                top: 55px;
+                z-index: 10;
+                width: 150px;
+
+                border-radius: 5px;
+                height: 0;
+                overflow: hidden;
+            }
+
+            nav:hover {
+                height: auto;
+                box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.507);
+            }
+
+            #icono_barras {
+                display: block;
+
+            }
+
+            #icono_barras:hover+nav {
+                height: auto;
+                box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.507);
+            }
+
+            #imagenesInicio {
+                display: none;
+            }
+
+            .videos {
+                height: calc(84% - 60px);
+            }
+
+            .imgPresentacionTit {
+                display: none;
+            }
+
+
+
+            #navegacion:hover {
+                height: auto;
+            }
+
+            #navegacion {
+                height: 40px;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                overflow: hidden;
+                transition: all 0.3s ease-in-out;
+
+            }
+
+            #navegacion span {
+                padding: 10px;
+            }
+
+            #sde_HOME p {
+                position: static;
+
+                margin: auto;
+                width: 90%;
+                height: auto;
+                margin-top: 200px;
+                padding: 10px;
+
+            }
+
+            #sde_HOME {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            #asideInformes {
+                width: 70%;
+            }
+
+
+        }
     </style>
 </head>
 
 <body>
+    <div id="loading">
+        <span>EDC</span>
+        <div class="efecto_load">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <div id="fondo">
         <img src="recursos/imagenes/f.png" alt="" srcset="">
     </div>
@@ -515,7 +751,8 @@
             directas a los PILARES Tepantongo y Real de San Martín
             <a target="_blank" href="https://chat.whatsapp.com/Ih3s3Lio4wtCMbWYacyWSg">Enlace al grupo</a>
             <br>
-            <img style="width: 90%; margin: 20px;  border-radius: 10px;" src="recursos/imagenes/InvitacionQR.jpg" alt="" srcset="">
+            <img style="width: 90%; margin: 20px;  border-radius: 10px;" src="recursos/imagenes/InvitacionQR.jpg" alt=""
+                srcset="">
             <br>
         </p>
         <h1>
@@ -541,8 +778,10 @@
     </aside>
     <main>
         <header>
+
             <span><i style="background-color: rgb(255, 255, 255);font-weight: bold; color: rgb(0, 0, 0); padding: 5px;border-radius: 5px; margin-right: 15px;"
                     class="fa-solid fa-terminal"></i>Escuela del Código</span>
+            <i id="icono_barras" class="fa-solid fa-bars"></i>
             <nav>
                 <a href="#" id="btn_informes"><i class="fa-solid fa-circle-info"></i>Informes</a>
                 <a href="http://187.217.4.141/~edc/moodle/" target="_blank"><i class="fa-solid fa-pencil"></i>Moodle</a>
@@ -569,6 +808,14 @@
                     <img src="recursos/imagenes/Tepantongo2.jpg" alt="" srcset="">
                 </div>
                 <p>
+                    Esta plataforma se establece con el objetivo de ofrecer un sólido respaldo a la enseñanza de
+                    programación a través del tallerista Ernesto Urrutia. Utilizando herramientas multimedia, la
+                    plataforma facilita sesiones educativas para los diversos módulos y lenguajes de programación que
+                    ahí se vean, como: C++, HTML, CSS, SQL, Python y Java.
+                    <br>
+                    Las sesiones educativas se llevan a cabo en los centros: Pilares Tepantongo y Pilares Real de San
+                    Martín, proporcionando un entorno propicio para el aprendizaje y el desarrollo de habilidades en el
+                    ámbito de la programación.
 
                 </p>
             </article>
@@ -607,6 +854,7 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
                     <br>
+
                 </div>
                 <a href="PC/">Presentaciones</a>
                 <a class="imgPdfDownload" href="PC/Material.pdf" target="_blank"><img
@@ -616,6 +864,7 @@
                 <span>Desarrollo Web</span>
                 <img class="imgPresentacionTit" src="recursos/imagenes/DesarrolloWeb.png" alt="">
                 <div class="videos">
+
                     <iframe width="90%" src="https://www.youtube.com/embed/rbuYtrNUxg4" title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -633,6 +882,7 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
                     <br>
+
                 </div>
                 <a href="DW/">Presentaciones</a>
                 <a class="imgPdfDownload" href="DW/Material.pdf" target="_blank"><img
@@ -642,11 +892,13 @@
                 <span>Base de Datos</span>
                 <img class="imgPresentacionTit" src="recursos/imagenes/basedeDatos.png" alt="">
                 <div class="videos">
+
                     <iframe width="90%" src="https://www.youtube.com/embed/ZGtdC7xj4M0?si=Z1aNrOf5HOzdqMpU"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
                     <br>
+
                 </div>
                 <a href="BD/">Presentaciones</a>
                 <a class="imgPdfDownload" href="BD/Material.pdf" target="_blank"><img
@@ -669,7 +921,16 @@
                         src="recursos/imagenes/pdfDownload.png" alt="" srcset=""></a>
             </article>
         </section>
-        <footer></footer>
+        <footer>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.0204017319957!2d-99.19028192415509!3d19.497758038595585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f9c80d0b2da7%3A0x36b1af3065520631!2sPILARES%20Real%20de%20San%20Mart%C3%ADn!5e0!3m2!1ses-419!2smx!4v1706148175426!5m2!1ses-419!2smx"
+                style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2172.7592258211407!2d-99.18743334721091!3d19.48981108222399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f9bd8d8913d1%3A0x443aa8ff33091f5a!2sPILARES%20Tepantongo!5e0!3m2!1ses-419!2smx!4v1706148220449!5m2!1ses-419!2smx"
+                style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </footer>
     </main>
 
 </body>
@@ -691,10 +952,10 @@
 
     }
     $('#cerrarInformes').on("click", function () {
-        $('#asideInformes').css("left", "-100%");
+        $('#asideInformes').toggleClass("openclose");
     });
     $('#btn_informes').on("click", function () {
-        $('#asideInformes').css("left", "0");
+        $('#asideInformes').toggleClass("openclose");
     });
 
     $('#navegacion span').on("click", function () {
@@ -719,6 +980,22 @@
         }, 1000);
 
     })
+
+    window.addEventListener("scroll", function () {
+        var scrollPos = window.scrollY;
+
+
+        if (scrollPos > 10) {
+            $("header").addClass("pegado");
+        } else {
+            $("header").removeClass("pegado");
+        }
+    });
+    setTimeout(function () {
+        $("#loading").toggleClass("loadout");
+
+
+    }, 800);
 </script>
 
 </html>

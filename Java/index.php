@@ -7,7 +7,16 @@
     <title>EDC (Java)</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../css/index.css">
-
+    <?php
+    $rutaCarpeta = 'presentaciones/';
+    $archivos = scandir($rutaCarpeta);
+    $archivosImagen = array_filter($archivos, function ($archivo) {
+        return pathinfo($archivo, PATHINFO_EXTENSION) == 'JPG';
+    });
+    foreach ($archivosImagen as $imagen) {
+        echo '<link rel="preload" href="' . $rutaCarpeta . $imagen . '" as="image">' . PHP_EOL;
+    }
+    ?>
 </head>
 
 <body>
