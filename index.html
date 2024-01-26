@@ -334,7 +334,7 @@
         #imagenesInicio img:hover {
             border-radius: 25%;
             box-shadow: 0px 0px 10px 1px rgb(255, 255, 255);
-
+            
         }
 
         #imagenesInicio img:active {
@@ -539,21 +539,67 @@
             position: absolute;
         }
 
-        footer iframe {
-            width: 400px;
-            height: 400px;
-            margin: 10px;
+        footer .pilaresInfo {
+            width: 45%;
+            height: 500px;
+            margin-top: 40px;
+            position: relative;
+            min-width: 500px;
+            opacity: 0.5;
+            transition: all 0.3s ease-in-out;
+        }
+        footer .pilaresInfo:hover {
+            opacity: 1;
+        }
+        footer .pilaresInfo img {
+            position: absolute;
+            width: 100%;
+            height: 450px;
+            border-radius: 10px;
+        }
+        footer .pilaresInfo span {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+            font-size: 22px;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            
+            
+            text-shadow: 0px 0px 5px black;
+            padding: 5px 10px;
+
+        }
+        footer .pilaresInfo iframe {
+            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.452);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+
             border-radius: 10px;
             flex-shrink: 0;
+            transition: all 0.3s ease-in-out;
+            z-index: 5;
+        }
+
+        footer iframe:hover {
+            width: 100%;
+            height: 450px;
+          
         }
 
         footer {
+            flex-wrap: wrap;
+            position: relative;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: space-evenly;
             width: 100%;
             margin-top: 10px;
             max-width: 1100px;
-
             background-color: rgb(31, 31, 31);
             border-top-right-radius: 10px;
             border-top-left-radius: 10px;
@@ -598,7 +644,7 @@
             nav {
                 display: flex;
                 flex-direction: column;
-                
+
                 position: fixed;
                 right: 0px;
                 backdrop-filter: blur(10px);
@@ -922,14 +968,23 @@
             </article>
         </section>
         <footer>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.0204017319957!2d-99.19028192415509!3d19.497758038595585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f9c80d0b2da7%3A0x36b1af3065520631!2sPILARES%20Real%20de%20San%20Mart%C3%ADn!5e0!3m2!1ses-419!2smx!4v1706148175426!5m2!1ses-419!2smx"
-                style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2172.7592258211407!2d-99.18743334721091!3d19.48981108222399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f9bd8d8913d1%3A0x443aa8ff33091f5a!2sPILARES%20Tepantongo!5e0!3m2!1ses-419!2smx!4v1706148220449!5m2!1ses-419!2smx"
-                style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="pilaresInfo">
+                <span>Pilares Real de San Martín</span>
+            <img src="recursos/imagenes/Real.png" alt="">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.0204017319957!2d-99.19028192415509!3d19.497758038595585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f9c80d0b2da7%3A0x36b1af3065520631!2sPILARES%20Real%20de%20San%20Mart%C3%ADn!5e0!3m2!1ses-419!2smx!4v1706148175426!5m2!1ses-419!2smx"
+                    style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="pilaresInfo">
+                <span>Pilares Tepantongo</span>
+                <img src="recursos/imagenes/Tepantongo.jpg" alt="" srcset="">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2172.7592258211407!2d-99.18743334721091!3d19.48981108222399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f9bd8d8913d1%3A0x443aa8ff33091f5a!2sPILARES%20Tepantongo!5e0!3m2!1ses-419!2smx!4v1706148220449!5m2!1ses-419!2smx"
+                    style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
         </footer>
     </main>
 
