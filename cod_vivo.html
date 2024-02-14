@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        pre {
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+            overflow: scroll;
+            background-color: rgb(59, 59, 59);
+            color: white;
+        }
+
+        .highlight {
+            color: rgb(3, 238, 34);
+            /* Cambia el color a rojo */
+            font-weight: bold;
+            font-size: 16px;
+            /* Cambia el peso de la fuente a negrita */
+        }
+    </style>
+</head>
+
+<body>
+    <pre id="codigo">
+
+        class Animal:
+        def __init__(self,habitat,alimentacion):
+        self.habitat=habitat
+        self.alimentacion=alimentacion
+    
+        def viveEn(self):
+        print("El vive en: ",self.habitat)
+        def come(self):
+        print("El come: ",self.alimentacion)
+    
+        class Perros(Animal):
+        def __init__(self,nombre,edad):
+        super().__init__("Domestico","Sobras")
+        self.nombre=nombre
+        self.edad=edad
+        def mellamo(self):
+        print("Mi nombre es: ",self.nombre)
+        def tengoEdad(self):
+        print("Mi edad es: ",self.edad)
+    
+    
+        class Gatos(Animal):
+        def __init__(self,nombre,edad):
+        super().__init__("Domestico/Callejero","Sobresitos")
+        self.nombre=nombre
+        self.edad=edad
+        def mellamo(self):
+        print("Mi nombre es: ",self.nombre)
+        def tengoEdad(self):
+        print("Mi edad es: ",self.edad)
+    
+    
+        Egipcio=Gatos("Kratos",5)
+    
+        PastorAleman=Perros("Firulais",3)
+    
+    
+        Egipcio.mellamo()
+        PastorAleman.mellamo()
+    
+        Egipcio.tengoEdad()
+        PastorAleman.tengoEdad()
+    
+    
+        Egipcio.viveEn()
+        PastorAleman.viveEn()
+    
+        Egipcio.come()
+        PastorAleman.come()
+    
+   </pre>
+
+</body>
+<script>
+  var container = document.getElementById("codigo");
+    var content = container.innerHTML;
+
+    // Definir la palabra que quieres buscar y la palabra con la que quieres reemplazarla
+    var palabraBuscada = "class";
+    var palabraReemplazo = "<span class='highlight'>class</span>";
+
+    // Usar expresión regular para hacer el reemplazo globalmente
+    var nuevoContenido = content.replace(new RegExp(palabraBuscada, 'g'), palabraReemplazo);
+
+    // Asignar el nuevo contenido al contenedor
+    container.innerHTML = nuevoContenido;
+</script>
+
+</html>
