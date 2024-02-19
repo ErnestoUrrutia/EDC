@@ -11,23 +11,40 @@
             height: 500px;
             border: 1px solid red;
             overflow: scroll;
-            background-color: rgb(59, 59, 59);
+            background-color: rgb(36, 36, 36);
             color: white;
         }
 
-        .highlight {
+        .verde1 {
             color: rgb(3, 238, 34);
-            /* Cambia el color a rojo */
             font-weight: bold;
-            font-size: 16px;
-            /* Cambia el peso de la fuente a negrita */
+
+        }
+
+        .azul1 {
+            color: rgb(111, 146, 243);
+        }
+
+        .azul2 {
+            color: rgb(34, 91, 248);
+        }
+
+        .amarillo1 {
+            color: yellow;
+            font-weight: bold;
+        }
+
+        .rosa1 {
+            color: rgb(243, 102, 212);
         }
     </style>
 </head>
 
 <body>
     <pre id="codigo">
+        for i in range():
 
+        if
         class Animal:
         def __init__(self,habitat,alimentacion):
         self.habitat=habitat
@@ -47,8 +64,8 @@
         print("Mi nombre es: ",self.nombre)
         def tengoEdad(self):
         print("Mi edad es: ",self.edad)
-    
-    
+        function
+        a=input("Hola")
         class Gatos(Animal):
         def __init__(self,nombre,edad):
         super().__init__("Domestico/Callejero","Sobresitos")
@@ -59,7 +76,7 @@
         def tengoEdad(self):
         print("Mi edad es: ",self.edad)
     
-    
+        function
         Egipcio=Gatos("Kratos",5)
     
         PastorAleman=Perros("Firulais",3)
@@ -77,23 +94,46 @@
     
         Egipcio.come()
         PastorAleman.come()
-    
+
    </pre>
 
 </body>
 <script>
-  var container = document.getElementById("codigo");
+    var container = document.getElementById("codigo");
     var content = container.innerHTML;
 
-    // Definir la palabra que quieres buscar y la palabra con la que quieres reemplazarla
-    var palabraBuscada = "class";
-    var palabraReemplazo = "<span class='highlight'>class</span>";
+    // Definir la lista de palabras que quieres buscar y los estilos para reemplazarlas
+    var palabrasEstilos = [
+        { palabra: " class ", estilo: "verde1" },
+        { palabra: " function ", estilo: "azul1" },
+        { palabra: " def ", estilo: "azul2" },
+        { palabra: ":", estilo: "simbolos" },
+        { palabra: "self", estilo: "azul2" },
+        { palabra: "for ", estilo: "rosa1" },
+        { palabra: "if", estilo: "rosa1" },
+        { palabra: "else", estilo: "rosa1" },
+        { palabra: "elif", estilo: "rosa1" },
+        { palabra: "while", estilo: "rosa1" },
+        { palabra: "input", estilo: "rosa1" },
+        { palabra: "do", estilo: "rosa1" },
+        { palabra: " in ", estilo: "rosa1" },
+        { palabra: "range", estilo: "amarillo1" },
+        { palabra: "while", estilo: "rosa1" }
+        
+        
+    ];
 
-    // Usar expresión regular para hacer el reemplazo globalmente
-    var nuevoContenido = content.replace(new RegExp(palabraBuscada, 'g'), palabraReemplazo);
+    // Iterar sobre cada palabra y estilo en la lista
+    palabrasEstilos.forEach(function (item) {
+        var palabraBuscada = item.palabra;
+        var palabraReemplazo = "<span class='" + item.estilo + "'>" + palabraBuscada + "</span>";
+
+        // Usar expresión regular para hacer el reemplazo globalmente
+        content = content.replace(new RegExp(palabraBuscada, 'g'), palabraReemplazo);
+    });
 
     // Asignar el nuevo contenido al contenedor
-    container.innerHTML = nuevoContenido;
+    container.innerHTML = content;
 </script>
 
 </html>
