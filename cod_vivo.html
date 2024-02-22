@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
     <title>Document</title>
     <style>
         pre {
@@ -37,6 +38,7 @@
         .rosa1 {
             color: rgb(243, 102, 212);
         }
+
         .naranja1 {
             color: rgb(233, 155, 11);
         }
@@ -44,19 +46,9 @@
 </head>
 
 <body>
-    <code>
-    <pre id="codigo">
-        #include &lt;iostream&gt;
-
-
-            int main()
-            {
-                std::cout<<"Hello World";
-            
-                return 0;
-            }
+    <pre><code class="language-html">
         for i in range():
-
+        
         if
         class Animal:
         def __init__(self,habitat,alimentacion):
@@ -88,7 +80,7 @@
         print("Mi nombre es: ",self.nombre)
         def tengoEdad(self):
         print("Mi edad es: ",self.edad)
-    
+        cout<<"Hola";
         function
         Egipcio=Gatos("Kratos",5)
     
@@ -108,49 +100,14 @@
         Egipcio.come()
         PastorAleman.come()
 
-   </pre>
-    </code>
+    </code></pre>
 </body>
-<script>
-    var container = document.getElementById("codigo");
-    var content = container.innerHTML;
 
-    // Definir la lista de palabras que quieres buscar y los estilos para reemplazarlas
-    var palabrasEstilos = [
-        { palabra: " class ", estilo: "verde1" },
-        { palabra: " function ", estilo: "azul1" },
-        { palabra: " def ", estilo: "azul2" },
-        { palabra: ":", estilo: "simbolos" },
-        { palabra: "self", estilo: "azul2" },
-        { palabra: "for ", estilo: "rosa1" },
-        { palabra: "if", estilo: "rosa1" },
-        { palabra: "else", estilo: "rosa1" },
-        { palabra: "elif", estilo: "rosa1" },
-        { palabra: "while", estilo: "rosa1" },
-        { palabra: "input", estilo: "rosa1" },
-        { palabra: "do", estilo: "rosa1" },
-        { palabra: " in ", estilo: "rosa1" },
-        { palabra: "range", estilo: "amarillo1" },
-        { palabra: "iostream", estilo: "azul1" },
-        { palabra: "#include", estilo: "naranja1" },
-        { palabra: "return", estilo: "naranja1" },
-        { palabra: "main", estilo: "naranja1" },
-        { palabra: "while", estilo: "rosa1" }
-        
-        
-    ];
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-    // Iterar sobre cada palabra y estilo en la lista
-    palabrasEstilos.forEach(function (item) {
-        var palabraBuscada = item.palabra;
-        var palabraReemplazo = "<span class='" + item.estilo + "'>" + palabraBuscada + "</span>";
+<!-- and it's easy to individually load additional languages -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 
-        // Usar expresión regular para hacer el reemplazo globalmente
-        content = content.replace(new RegExp(palabraBuscada, 'g'), palabraReemplazo);
-    });
-
-    // Asignar el nuevo contenido al contenedor
-    container.innerHTML = content;
-</script>
+<script>hljs.highlightAll();</script>
 
 </html>
